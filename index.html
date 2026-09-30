@@ -15,7 +15,63 @@
                 font-size: 18px;
                 line-height: 1.5;
             }
+            nav a{
+                font-size: 16px;
+                padding: 10px 14px;
+                margin: 5px;
+            }
         }
+        nav a:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px #999;
+        }
+        .seccion-gato{
+            background-color: #FFF8F0;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 3px 8px #999;
+
+        }
+        .datos-especiales{
+            background-color: #FFF8F0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px #999;
+            text-align: left;
+        }
+        .datos-especiales ul{
+            list-style: none;
+            padding: o;
+        }
+        .datos-especiales li{
+            position: relative;
+            background-color: #fffaf5;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius:  12px;
+            box-shadow: 0 2px 6px #ccc;
+            transition: transform  0.2s;
+    
+        }
+        .datos-especiales li:hover{
+            transform: translateY(-3px);
+        }
+        .datos-especiales li::after {
+    content: "🐾";
+    display: inline-block;
+    margin-left: 8px;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: 0.2s;
+}
+
+.datos-especiales li:hover::after,
+.datos-especiales li:active::after {
+    opacity: 1;
+    transform: scale(1);
+}
      </style>
  </head>
 <style>
@@ -24,9 +80,14 @@
     bottom: 100px;
     left: 0;
     width: 60px;
+    transition: transform 0.2s;
+    z-index: 10;
     
 }
-body {background-color: #e8ced6;
+.gatito:active{
+    transform: translateY(-15px);
+}
+body {background-color: #FFF8F0;
 
 }
 
@@ -36,25 +97,25 @@ body {background-color: #e8ced6;
     <img src="gatitopixel.png" class="gatito"
     alt="Gatito caminando">
  <h1 style="text-align: center; color: saddlebrown; font-family: Georgia, serif;
-  font-size: 42px; text-shadow:2px 2px 3px #c9a27e;">El mundo de los gatos</h1>
- <nav style="text-align: center;margin: 15px 0;">
- <a href="#comida" style="display: inline-block; padding: 8px 10px; background-color: #D98FA9; color: white; text-decoration: none; border-radius: 8px; margin: 3px;">
+  font-size: 48px; text-shadow:2px 2px 3px #c9a27e;">El mundo de los gatos</h1>
+ <nav style="text-align: center;margin: 20px 0;">
+ <a href="#comida" style="display: inline-block; padding: 8px 10px; background-color: #8b5; color: white; text-decoration: none; border-radius: 8px; margin: 3px;">
     🍗 Comida
  </a>
- <a href="#razas" style="display: inline-block; padding: 8px 10px; background-color: #D98FA9; color: white; text-decoration: none; border-radius: 8px; margin: 5px;">
+ <a href="#razas" style="display: inline-block; padding: 8px 10px; background-color: #8b5; color: white; text-decoration: none; border-radius: 8px; margin: 5px;">
     🐱 Razas
 </a>
-<a href="#cuidados" style="display: inline-block; padding: 8px 10px; background-color: #D98FA9; color: white; text-decoration: none; border-radius: 8px; margin: 5px;">
+<a href="#cuidados" style="display: inline-block; padding: 8px 10px; background-color: #8b5; color: white; text-decoration: none; border-radius: 8px; margin: 5px;">
     🏠 Cuidados
 </a>
-<a href="#comportamiento" style="display: inline-block; padding: 8px 10px; background-color: #D98FA9; color: white; text-decoration: none; border-radius: 8px; margin: 5px;">
+<a href="#comportamiento" style="display: inline-block; padding: 8px 10px; background-color: #8b5; color: white; text-decoration: none; border-radius: 8px; margin: 5px;">
     🐾 Comportamiento
 </a>
-<a href="#juegos" style="display: inline-block; padding: 8px 10px; background-color: #D98FA9; color: white; text-decoration: none; border-radius: 8px; margin: 5px;">
+<a href="#juegos" style="display: inline-block; padding: 8px 10px; background-color: #8b5; color: white; text-decoration: none; border-radius: 8px; margin: 5px;">
     🎾 Juegos
 </a>
 
-<a href="#salud" style="display: inline-block; padding: 8px 10px; background-color: #D98FA9; color: white; text-decoration: none; border-radius: 8px; margin: 5px;">
+<a href="#salud" style="display: inline-block; padding: 8px 10px; background-color: #8b5; color: white; text-decoration: none; border-radius: 8px; margin: 5px;">
     🩺 Salud
 </a>
  </nav>
@@ -63,8 +124,11 @@ body {background-color: #e8ced6;
    tienen la capacidad de rotar sus orejas 180 grados de forma independiente
    para localizar el origen exacto de un ruido.</p>
    <div style="text-align: center;">
-    <img src="gatos.jpg" alt="Dos gatos" width="300">
+    <img src="gatos.jpg" alt="Dos gatos"
+     width="300"
+     style="border-radius: 15px; box-shadow: 0 4px 10px #999;">
    </div>
+   <section class="datos-especiales">
    <h2 style="color: #ef8caf; border-left: 5px solid #D98FA9
    ; padding-left: 10px;">
   🐈Datos interesantes sobre los gatitos </h2>
@@ -86,6 +150,7 @@ body {background-color: #e8ced6;
         especialemente cuando están relacionadas con algo importante para ellos.</li>
 
          </ul>
+   </section>
          <script>
     function moverGatito() {
     const gatito = document.querySelector(".gatito");
@@ -103,6 +168,7 @@ body {background-color: #e8ced6;
 setInterval(moverGatito, 4000);
 moverGatito();
 </script>
+<section class="seccion-gato">
 <h2 id="comida" style="color: #D98FA9; border-left: 5px solid #D98FA9; padding-left: 10px;">
     🍗 Alimentación de los gatos
 </h2>
@@ -117,6 +183,8 @@ moverGatito();
     <li> Alimento húmedo</li>
     <li> Agua fresca y limpia</li>
 </ul>
+</section>
+<section class="seccion-gato">
 <h2 id="razas" style="color: #D98FA9; border-left: 5px solid #D98FA9; padding-left: 10px;">
     🐱 Razas de gatos
 </h2>
@@ -132,6 +200,8 @@ moverGatito();
     <li> Maine Coon: es una raza grande y de pelo largo.</li>
     <li> Bengalí: tiene un pelaje con patrones parecidos a los de un felino salvaje.</li>
 </ul>
+</section>
+<section class="seccion-gato">
 <h2 id="cuidados" style="color: #D98FA9; border-left: 5px solid #D98FA9; padding-left: 10px;">
     🏠 Cuidados de los gatos
 </h2>
@@ -148,6 +218,8 @@ moverGatito();
     <li>Cepillar su pelaje cuando sea necesario.</li>
     <li>Llevarlos al veterinario para sus revisiones.</li>
 </ul>
+</section>
+<section class="seccion-gato">
 <h2 id="comportamiento" style="color: #D98FA9; border-left: 5px solid #D98FA9; padding-left: 10px;">
     🐾 Comportamiento de los gatos
 </h2>
@@ -163,6 +235,8 @@ moverGatito();
     <li> Suelen dormir varias horas durante el día.</li>
     <li> Utilizan su lenguaje corporal para expresar emociones.</li>
 </ul>
+</section>
+<section class="seccion-gato">
 <h2 id="juegos" style="color: #D98FA9; border-left: 5px solid #D98FA9; padding-left: 10px;">
     🎾 Juegos y actividades
 </h2>
@@ -178,6 +252,8 @@ moverGatito();
     <li> Explorar cajas y espacios seguros.</li>
     <li> Trepar y moverse por diferentes lugares.</li>
 </ul>
+</section>
+<section class="seccion-gato">
 <h2 id="salud" style="color: #D98FA9; border-left: 5px solid #D98FA9; padding-left: 10px;">
     🩺 Salud de los gatos
 </h2>
@@ -193,5 +269,6 @@ moverGatito();
     <li> Mantener limpio su espacio.</li>
     <li> Asegurarse de que siempre tenga agua fresca.</li>
 </ul>
+</section>
 </body>
 </html>
